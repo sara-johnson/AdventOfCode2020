@@ -9,12 +9,16 @@ public class App {
         System.out.println(day01.handlePart01());
         System.out.println(day01.handlePart02());
 
+        System.out.println("----------------------------");
         //Day02 Result
         List<String> day02Input = util.AOC_FileIO.getFileAsList("C:\\Users\\sajohn84\\Documents\\GitHub\\" +
                 "AdventOfCode2020\\src\\main\\java\\AOC_SourceFiles\\12_02_2020.txt");
         Day02_PasswordPhilosophy day02 = new Day02_PasswordPhilosophy(day02Input);
         day02.handlePart01();
+        day02.handlePart02();
 
-
+        for (String line : day02Input) {
+            System.out.println(line);
+        }
     }
 }

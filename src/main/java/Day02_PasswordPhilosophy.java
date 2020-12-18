@@ -6,14 +6,14 @@ public class Day02_PasswordPhilosophy {
     public Day02_PasswordPhilosophy(List<String> inputList) {
         passwordList = inputList;
     }
-    
+
     public void handlePart01() {
         int validPasswords = 0;
-
         Character letterToBeFound = null;
         int lowest;
         int highest;
         String pwrd;
+
         for (String password : passwordList) {
             int counter = 0;
             lowest = lowestNumber(password);
@@ -27,6 +27,28 @@ public class Day02_PasswordPhilosophy {
                 }
             }
             if (lowest <= counter && counter <= highest) {
+                validPasswords++;
+            }
+        }
+        System.out.println(validPasswords);
+    }
+
+    public void handlePart02() {
+        int validPasswords = 0;
+        Character letterToBeFound = null;
+        int lowest;
+        int highest;
+        String pwrd;
+
+        for (String password : passwordList) {
+            lowest = lowestNumber(password) - 1;
+            highest = highestNumber(password) - 1;
+            pwrd = passwordToVerify(password);
+            letterToBeFound = letterToBeFound(password);
+
+            if (pwrd.charAt(lowest) == letterToBeFound && pwrd.charAt(highest) == letterToBeFound) {
+                continue;
+            } else if (pwrd.charAt(lowest) == letterToBeFound || pwrd.charAt(highest) == letterToBeFound) {
                 validPasswords++;
             }
         }
@@ -66,4 +88,5 @@ public class Day02_PasswordPhilosophy {
         }
         return Integer.parseInt(highestNumber.toString());
     }
+
 }
